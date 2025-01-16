@@ -4,11 +4,13 @@
 //   }
   
 //   export default nextConfig
- /** @type {import('next').NextConfig} */
+
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',  // Ensures compatibility with Vercel's deployment system
+  output: 'standalone', // Ensures Vercel runs Next.js correctly
   experimental: {
-    appDir: true,  // Ensures Next.js App Router compatibility (if you're using it)
+    appDir: true, // Enables App Router (if using it)
   },
   webpack: (config) => {
     config.externals.push({
@@ -17,8 +19,10 @@ const nextConfig = {
     })
     return config
   },
+  distDir: ".next", // Ensures the build goes into the correct folder
 }
 
 export default nextConfig
+
 
 
